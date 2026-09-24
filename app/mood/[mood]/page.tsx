@@ -51,7 +51,7 @@ export default async function MoodPage({ params }: Props) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.14em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textDecoration: 'none',
             textTransform: 'uppercase',
           }}
@@ -65,7 +65,7 @@ export default async function MoodPage({ params }: Props) {
         className="px-6 md:px-20"
         style={{
           paddingBottom: '40px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
         }}
       >
         <p
@@ -73,7 +73,7 @@ export default async function MoodPage({ params }: Props) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.18em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             marginBottom: '16px',
             textTransform: 'uppercase',
           }}
@@ -86,7 +86,7 @@ export default async function MoodPage({ params }: Props) {
             fontWeight: 300,
             fontSize: 'clamp(36px, 5vw, 64px)',
             letterSpacing: '-0.025em',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             marginBottom: '20px',
           }}
         >
@@ -101,8 +101,8 @@ export default async function MoodPage({ params }: Props) {
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '11px',
                 letterSpacing: '0.06em',
-                color: '#9E9990',
-                border: '1px solid rgba(26,26,26,0.12)',
+                color: 'var(--text-subtle)',
+                border: '1px solid var(--border-tag)',
                 padding: '4px 10px',
               }}
             >
@@ -115,8 +115,8 @@ export default async function MoodPage({ params }: Props) {
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '11px',
                 letterSpacing: '0.06em',
-                color: '#9E9990',
-                border: '1px solid rgba(26,26,26,0.12)',
+                color: 'var(--text-subtle)',
+                border: '1px solid var(--border-tag)',
                 padding: '4px 10px',
               }}
             >
@@ -129,8 +129,8 @@ export default async function MoodPage({ params }: Props) {
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '11px',
                 letterSpacing: '0.06em',
-                color: '#9E9990',
-                border: '1px solid rgba(26,26,26,0.12)',
+                color: 'var(--text-subtle)',
+                border: '1px solid var(--border-tag)',
                 padding: '4px 10px',
               }}
             >
@@ -143,7 +143,7 @@ export default async function MoodPage({ params }: Props) {
       {/* Grid */}
       <div
         className="grid grid-cols-1 md:grid-cols-2"
-        style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+        style={{ borderBottom: '1px solid var(--border)' }}
       >
         {entries.map((entry, i) => (
           <div
@@ -151,9 +151,9 @@ export default async function MoodPage({ params }: Props) {
             style={{
               borderBottom:
                 i < entries.length - (entries.length % 2 === 0 ? 2 : 1)
-                  ? '1px solid rgba(26,26,26,0.08)'
+                  ? '1px solid var(--border)'
                   : undefined,
-              borderRight: i % 2 === 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+              borderRight: i % 2 === 0 ? '1px solid var(--border)' : undefined,
             }}
           >
             <ItemCard

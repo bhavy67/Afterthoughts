@@ -3,7 +3,9 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ThemeProvider from '@/components/ThemeProvider'
+import { SearchModalProvider } from '@/components/SearchModal'
 import { Analytics } from '@vercel/analytics/react'
+import { getAllEntries } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Afterthoughts',
@@ -33,11 +35,28 @@ export const viewport: Viewport = {
   ],
 }
 
+function entryHref(type: string, slug: string): string {
+  if (type === 'novel') return `/shelf/${slug}`
+  if (type === 'album' || type === 'song') return `/sound/${slug}`
+  return `/screen/${slug}`
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const searchEntries = getAllEntries().map((e) => ({
+    slug: e.slug,
+    title: e.title,
+    creator: e.creator,
+    year: e.year,
+    type: e.type,
+    rating: e.rating,
+    moods: e.moods,
+    href: entryHref(e.type, e.slug),
+  }))
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Prevent flash of wrong theme — runs before any paint */}
+        {/* Prevent flash of wrong theme — runs synchronously before first paint */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
@@ -46,11 +65,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <ThemeProvider>
-          <a href="#main-content" className="skip-link">Skip to content</a>
-          <Nav />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <Analytics />
+          <SearchModalProvider entries={searchEntries}>
+            <a href="#main-content" className="skip-link">Skip to content</a>
+            <Nav />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <Analytics />
+          </SearchModalProvider>
         </ThemeProvider>
       </body>
     </html>

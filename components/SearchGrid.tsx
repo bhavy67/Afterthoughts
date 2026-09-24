@@ -48,7 +48,7 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
         className="px-6 md:px-20"
         style={{
           paddingBottom: '32px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
         }}
       >
         <input
@@ -62,10 +62,10 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
             fontFamily: "'DM Mono', monospace",
             fontSize: 'clamp(18px, 3vw, 28px)',
             fontWeight: 300,
-            color: '#1A1A1A',
+            color: 'var(--text)',
             backgroundColor: 'transparent',
             border: 'none',
-            borderBottom: '1px solid rgba(26,26,26,0.2)',
+            borderBottom: '1px solid var(--border-input)',
             outline: 'none',
             padding: '12px 0',
             letterSpacing: '0.02em',
@@ -82,14 +82,14 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
               style={{
                 paddingTop: '20px',
                 paddingBottom: '20px',
-                borderBottom: '1px solid rgba(26,26,26,0.08)',
+                borderBottom: '1px solid var(--border)',
               }}
             >
               <span
                 style={{
                   fontFamily: "'DM Mono', monospace",
                   fontSize: '11px',
-                  color: '#B8B2AA',
+                  color: 'var(--text-faint)',
                   letterSpacing: '0.06em',
                 }}
               >
@@ -99,7 +99,7 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
             <motion.div
               key={trimmed}
               className="grid grid-cols-1 md:grid-cols-2"
-              style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+              style={{ borderBottom: '1px solid var(--border)' }}
               variants={{ show: { transition: { staggerChildren: 0.04 } } }}
               initial="hidden"
               animate="show"
@@ -111,9 +111,9 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
                   style={{
                     borderBottom:
                       i < results.length - (results.length % 2 === 0 ? 2 : 1)
-                        ? '1px solid rgba(26,26,26,0.08)'
+                        ? '1px solid var(--border)'
                         : undefined,
-                    borderRight: i % 2 === 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+                    borderRight: i % 2 === 0 ? '1px solid var(--border)' : undefined,
                   }}
                 >
                   <ItemCard {...item} compact />
@@ -131,7 +131,7 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '13px',
                 fontWeight: 300,
-                color: '#B8B2AA',
+                color: 'var(--text-faint)',
               }}
             >
               nothing found for &ldquo;{trimmed}&rdquo;
@@ -148,7 +148,7 @@ export default function SearchGrid({ entries }: { entries: SearchEntry[] }) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '13px',
               fontWeight: 300,
-              color: '#C8C2BA',
+              color: 'var(--text-ghost)',
             }}
           >
             {entries.length} things in the archive.

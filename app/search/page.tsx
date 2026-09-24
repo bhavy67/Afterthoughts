@@ -27,7 +27,7 @@ export default function SearchPage() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.18em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             marginBottom: '16px',
             textTransform: 'uppercase',
           }}
@@ -40,7 +40,7 @@ export default function SearchPage() {
             fontWeight: 300,
             fontSize: 'clamp(36px, 5vw, 64px)',
             letterSpacing: '-0.025em',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             marginBottom: '14px',
           }}
         >
@@ -51,7 +51,7 @@ export default function SearchPage() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '13px',
             fontWeight: 300,
-            color: '#7A746C',
+            color: 'var(--text-muted)',
             lineHeight: 1.8,
             maxWidth: '420px',
           }}

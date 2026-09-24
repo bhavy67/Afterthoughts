@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import AtLogo from './AtLogo'
 import ThemeToggle from './ThemeToggle'
+import { useSearch } from './SearchModal'
 
 const links = [
   { href: '/shelf', label: 'shelf' },
@@ -16,6 +17,7 @@ const links = [
 export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const { open: openSearch } = useSearch()
 
   return (
     <>
@@ -73,13 +75,18 @@ export default function Nav() {
             })}
 
             {/* Search */}
-            <Link
-              href="/search"
-              aria-label="Search"
+            <button
+              onClick={openSearch}
+              aria-label="Search (⌘K)"
               style={{
-                color: pathname === '/search' ? 'var(--text)' : 'var(--text-subtle)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0,
                 display: 'flex',
                 alignItems: 'center',
+                gap: '7px',
+                color: 'var(--text-subtle)',
                 transition: 'color 0.15s',
               }}
             >
@@ -87,7 +94,20 @@ export default function Nav() {
                 <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.25" />
                 <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
               </svg>
-            </Link>
+              <kbd
+                style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '10px',
+                  letterSpacing: '0.04em',
+                  color: 'var(--text-ghost)',
+                  border: '1px solid var(--border-tag)',
+                  padding: '2px 6px',
+                  lineHeight: 1.4,
+                }}
+              >
+                ⌘K
+              </kbd>
+            </button>
 
             {/* Theme toggle */}
             <ThemeToggle />
@@ -200,24 +220,27 @@ export default function Nav() {
               </Link>
             )
           })}
-          <Link
-            href="/search"
-            onClick={() => setOpen(false)}
+          <button
+            onClick={() => { setOpen(false); openSearch() }}
             style={{
               display: 'block',
+              width: '100%',
+              textAlign: 'left',
+              background: 'none',
+              border: 'none',
+              borderBottom: '1px solid var(--border-faint)',
+              cursor: 'pointer',
               fontFamily: "'Fraunces Variable', 'Fraunces', serif",
               fontWeight: 300,
               fontSize: '28px',
               letterSpacing: '-0.01em',
-              color: pathname === '/search' ? 'var(--text)' : 'var(--text-ghost)',
-              textDecoration: 'none',
+              color: 'var(--text-ghost)',
               padding: '16px 24px',
-              borderBottom: '1px solid var(--border-faint)',
               transition: 'color 0.15s',
             }}
           >
             search
-          </Link>
+          </button>
         </nav>
 
         {/* Panel footer — theme toggle + tagline */}
