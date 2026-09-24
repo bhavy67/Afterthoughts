@@ -7,11 +7,14 @@
   "rating": 5.0,
   "summary": "An English butler drives across the countryside and constructs a perfect defense of every choice he ever made.",
   "personalNote": "Stevens drives across England and constructs a perfect defense of every choice he ever made. By the end you understand exactly why he needed to build it. The restraint is almost unbearable — every scene where he almost says the thing and doesn't. Ishiguro's greatest book, I think. And that's saying something.",
-  "moods": ["restrained", "devastating", "quietly-brilliant"],
+  "moods": [
+    "restrained",
+    "devastating",
+    "quietly-brilliant"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-04-22",
   "favoriteQuote": "It is, as I say, a matter of some regret to me that I should have spent so many hours of my life pondering over such questions as the nature of dignity.",
-  "wouldReread": true,
-  "coverUrl": "https://covers.openlibrary.org/b/isbn/0679731725-L.jpg"
+  "wouldReread": true
 }

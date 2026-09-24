@@ -7,10 +7,13 @@
   "rating": 5.0,
   "summary": "A man has his memories of a relationship erased. The erasure happens in reverse. You watch him fall back in love with what's being taken away.",
   "personalNote": "The only film I know that makes grief feel like a form of love. The structure is one of cinema's great ideas — watching the erasure happen backwards, watching Joel fall back in love with the memory as it disappears. Carrey's quietest, best performance. The ending asks the only question that matters.",
-  "moods": ["heartbreaking", "beautiful", "inventive"],
+  "moods": [
+    "heartbreaking",
+    "beautiful",
+    "inventive"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-05-03",
-  "wouldRewatch": true,
-  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/a/ab/Eternal_Sunshine_of_the_Spotless_Mind.png"
+  "wouldRewatch": true
 }

@@ -7,10 +7,13 @@
   "rating": 4.8,
   "summary": "Two Americans in Tokyo find each other at 3am. A film about the specific loneliness of being somewhere beautiful and still feeling far from yourself.",
   "personalNote": "Two people in the wrong place at the right time. Coppola understands that the most meaningful connections exist in the space between words — the shared glance across a hotel bar, the 3am corridor, the ending we're not allowed to hear. The loneliness here is specific and true. Bill Murray barely acts and that's the whole point.",
-  "moods": ["quiet", "melancholic", "tender"],
+  "moods": [
+    "quiet",
+    "melancholic",
+    "tender"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-07-18",
-  "wouldRewatch": true,
-  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/4/4f/Lost_in_Translation_poster.jpg"
+  "wouldRewatch": true
 }

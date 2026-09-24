@@ -7,12 +7,20 @@
   "rating": 5.0,
   "summary": "The benchmark. Everything laid out without flinching — the longing, the California lightness that makes the sadness heavier.",
   "personalNote": "The benchmark. Everything laid out without flinching — the loneliness, the wanting, the California lightness that somehow makes the sadness heavier. 'A Case of You' alone justifies the whole thing. Every serious songwriter has had to reckon with this record. You can hear it in everything that came after.",
-  "moods": ["timeless", "tender", "devastating"],
+  "moods": [
+    "timeless",
+    "tender",
+    "devastating"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-08-30",
-  "favoriteTracks": ["A Case of You", "River", "California", "The Last Time I Saw Richard"],
+  "favoriteTracks": [
+    "A Case of You",
+    "River",
+    "California",
+    "The Last Time I Saw Richard"
+  ],
   "whenDiscovered": "summer 2009",
-  "whyIReturn": "Because it's honest in a way that makes you want to be honest too.",
-  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/a/ad/Joni_Mitchell_-_Blue.png"
+  "whyIReturn": "Because it's honest in a way that makes you want to be honest too."
 }

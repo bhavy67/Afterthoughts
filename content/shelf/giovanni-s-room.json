@@ -7,11 +7,14 @@
   "rating": 4.8,
   "summary": "An American in Paris confronts what he cannot admit about himself. Baldwin's second novel is short, brutal, and impossible to forget.",
   "personalNote": "Brutally short and impossible to forget. Baldwin writes about love and cowardice in a way that makes cowardice feel like the original sin — not the failure of loving, but the failure of admitting you do. The prose is clean and absolutely unforgiving. A book about self-deception that doesn't let you be self-deceived while reading it.",
-  "moods": ["devastating", "literary", "painful"],
+  "moods": [
+    "devastating",
+    "literary",
+    "painful"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-06-10",
   "favoriteQuote": "People can't, unhappily, invent their mooring posts, their lovers and their friends, anymore than they can invent their parents. Life gives these and also takes them away.",
-  "wouldReread": false,
-  "coverUrl": "https://covers.openlibrary.org/b/isbn/0312278993-L.jpg"
+  "wouldReread": false
 }
