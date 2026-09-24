@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
@@ -23,6 +23,10 @@ export const metadata: Metadata = {
       'application/rss+xml': '/feed.xml',
     },
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#FAFAF8',
 }
 
 export default function RootLayout({

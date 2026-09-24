@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#FAFAF8"/>
+  <!-- AtLogo: original viewBox 0 0 62 56, scaled to fill center with ~82px padding -->
+  <!-- scale=5.613, translate(82, 90) centers glyph vertically and horizontally -->
+  <g transform="translate(82,90) scale(5.613)" stroke="#C0503A" stroke-width="2.6" stroke-linecap="square" fill="none">
+    <line x1="0" y1="5" x2="62" y2="5"/>
+    <line x1="4" y1="54" x2="31" y2="5"/>
+    <line x1="31" y1="5" x2="58" y2="54"/>
+    <line x1="31" y1="5" x2="31" y2="54"/>
+    <line x1="15" y1="36" x2="47" y2="36"/>
+  </g>
+</svg>
