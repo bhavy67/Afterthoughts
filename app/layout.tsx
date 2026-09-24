@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     title: 'Afterthoughts',
     description: 'Books, films, and music I\'ve carried.',
   },
+  alternates: {
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
 }
 
 export default function RootLayout({

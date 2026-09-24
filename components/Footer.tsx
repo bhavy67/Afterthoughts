@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import AtLogo from './AtLogo'
 
 export default function Footer() {
@@ -42,6 +43,20 @@ export default function Footer() {
         >
           things that stayed with me.
         </span>
+        <Link
+          href="/feed.xml"
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '11px',
+            fontWeight: 300,
+            color: '#C8C2BA',
+            letterSpacing: '0.08em',
+            textDecoration: 'none',
+            marginTop: '4px',
+          }}
+        >
+          rss
+        </Link>
       </div>
     </footer>
   )
