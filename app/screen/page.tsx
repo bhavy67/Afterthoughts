@@ -1,11 +1,13 @@
 import { getAllFilms } from '@/lib/content'
 import CategoryGrid from '@/components/CategoryGrid'
+import FadeIn from '@/components/FadeIn'
 
 export default function ScreenPage() {
   const films = getAllFilms()
   const items = films.map((f) => ({ ...f, href: `/screen/${f.slug}` }))
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* Header */}
@@ -25,5 +27,6 @@ export default function ScreenPage() {
       <CategoryGrid items={items} />
 
     </div>
+    </FadeIn>
   )
 }

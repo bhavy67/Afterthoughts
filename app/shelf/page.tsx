@@ -1,11 +1,13 @@
 import { getAllBooks } from '@/lib/content'
 import CategoryGrid from '@/components/CategoryGrid'
+import FadeIn from '@/components/FadeIn'
 
 export default function ShelfPage() {
   const books = getAllBooks()
   const items = books.map((b) => ({ ...b, href: `/shelf/${b.slug}` }))
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* Header */}
@@ -25,5 +27,6 @@ export default function ShelfPage() {
       <CategoryGrid items={items} />
 
     </div>
+    </FadeIn>
   )
 }

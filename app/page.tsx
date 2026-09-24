@@ -1,6 +1,7 @@
 import ItemCard from '@/components/ItemCard'
 import CurrentlyStrip from '@/components/CurrentlyStrip'
 import CategoryRow from '@/components/CategoryRow'
+import FadeIn from '@/components/FadeIn'
 import { getRecentEntries, getCurrently, getAllBooks, getAllFilms, getAllAlbums } from '@/lib/content'
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
   const albumCount = getAllAlbums().length
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* ── Hero ── */}
@@ -134,5 +136,6 @@ export default function HomePage() {
       />
 
     </div>
+    </FadeIn>
   )
 }

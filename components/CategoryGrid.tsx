@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import ItemCard from './ItemCard'
 import MoodFilter from './MoodFilter'
 
@@ -22,9 +23,15 @@ interface CategoryGridProps {
   items: CategoryGridItem[]
 }
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: 'easeOut' as const } },
+}
+
 export default function CategoryGrid({ items }: CategoryGridProps) {
   const [selectedMood, setSelectedMood] = useState('all')
   const [stayedOnly, setStayedOnly] = useState(false)
+  const shouldReduce = useReducedMotion()
 
   const allMoods = useMemo(() => {
     const set = new Set<string>()
@@ -108,13 +115,18 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
           </p>
         </div>
       ) : (
-        <div
+        <motion.div
+          key={`${selectedMood}-${stayedOnly}`}
           className="grid grid-cols-1 md:grid-cols-2"
           style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+          variants={shouldReduce ? undefined : { show: { transition: { staggerChildren: 0.05 } } }}
+          initial={shouldReduce ? false : 'hidden'}
+          animate="show"
         >
           {filtered.map((item, i) => (
-            <div
+            <motion.div
               key={item.slug}
+              variants={shouldReduce ? undefined : cardVariants}
               style={{
                 borderBottom:
                   i < filtered.length - (filtered.length % 2 === 0 ? 2 : 1)
@@ -124,9 +136,9 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
               }}
             >
               <ItemCard {...item} compact />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   )

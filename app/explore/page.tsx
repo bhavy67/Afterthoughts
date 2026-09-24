@@ -1,6 +1,7 @@
 import { getAllMoods, getStayedEntries } from '@/lib/content'
 import Link from 'next/link'
 import ItemCard from '@/components/ItemCard'
+import FadeIn from '@/components/FadeIn'
 import type { Entry } from '@/lib/types'
 
 function entryHref(e: Entry): string {
@@ -14,6 +15,7 @@ export default function ExplorePage() {
   const stayed = getStayedEntries()
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* Header */}
@@ -184,5 +186,6 @@ export default function ExplorePage() {
       </section>
 
     </div>
+    </FadeIn>
   )
 }

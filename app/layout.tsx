@@ -5,11 +5,17 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Afterthoughts',
-  description: 'Things that stayed with me.',
+  description: 'Books, films, and music I\'ve carried. A personal archive of things that stayed.',
   openGraph: {
     title: 'Afterthoughts',
-    description: 'Things that stayed with me.',
+    description: 'Books, films, and music I\'ve carried. A personal archive of things that stayed.',
     type: 'website',
+    siteName: 'Afterthoughts',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Afterthoughts',
+    description: 'Books, films, and music I\'ve carried.',
   },
 }
 
@@ -21,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Nav />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

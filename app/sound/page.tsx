@@ -1,11 +1,13 @@
 import { getAllAlbums } from '@/lib/content'
 import CategoryGrid from '@/components/CategoryGrid'
+import FadeIn from '@/components/FadeIn'
 
 export default function SoundPage() {
   const albums = getAllAlbums()
   const items = albums.map((a) => ({ ...a, href: `/sound/${a.slug}` }))
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* Header */}
@@ -25,5 +27,6 @@ export default function SoundPage() {
       <CategoryGrid items={items} />
 
     </div>
+    </FadeIn>
   )
 }

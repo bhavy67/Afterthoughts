@@ -2,6 +2,7 @@ import { getAllMoods, getEntriesByMood } from '@/lib/content'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import ItemCard from '@/components/ItemCard'
+import FadeIn from '@/components/FadeIn'
 import type { Entry } from '@/lib/types'
 import type { Metadata } from 'next'
 
@@ -39,6 +40,7 @@ export default async function MoodPage({ params }: Props) {
   const soundCount = entries.filter((e) => ['album', 'song'].includes(e.type)).length
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto">
 
       {/* Back */}
@@ -164,5 +166,6 @@ export default async function MoodPage({ params }: Props) {
       </div>
 
     </div>
+    </FadeIn>
   )
 }

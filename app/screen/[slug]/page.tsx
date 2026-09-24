@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import StarRating from '@/components/StarRating'
 import MoodTag from '@/components/MoodTag'
+import FadeIn from '@/components/FadeIn'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -26,6 +27,7 @@ export default async function FilmPage({ params }: Props) {
   if (!film) notFound()
 
   return (
+    <FadeIn>
     <div className="max-w-[1400px] mx-auto px-6 md:px-20">
 
       {/* Back */}
@@ -201,5 +203,6 @@ export default async function FilmPage({ params }: Props) {
       </div>
 
     </div>
+    </FadeIn>
   )
 }
