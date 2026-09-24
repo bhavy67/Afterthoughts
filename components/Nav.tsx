@@ -9,6 +9,7 @@ const links = [
   { href: '/shelf', label: 'shelf' },
   { href: '/screen', label: 'screen' },
   { href: '/sound', label: 'sound' },
+  { href: '/explore', label: 'explore' },
 ]
 
 export default function Nav() {

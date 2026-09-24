@@ -201,7 +201,7 @@ export default async function BookPage({ params }: Props) {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           {book.moods.map((mood) => (
-            <MoodTag key={mood} label={mood} />
+            <MoodTag key={mood} label={mood} href={`/mood/${mood}`} />
           ))}
         </div>
 

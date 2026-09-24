@@ -175,7 +175,7 @@ export default async function FilmPage({ params }: Props) {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           {film.moods.map((mood) => (
-            <MoodTag key={mood} label={mood} />
+            <MoodTag key={mood} label={mood} href={`/mood/${mood}`} />
           ))}
         </div>
 

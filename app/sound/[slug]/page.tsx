@@ -267,7 +267,7 @@ export default async function AlbumPage({ params }: Props) {
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           {album.moods.map((mood) => (
-            <MoodTag key={mood} label={mood} />
+            <MoodTag key={mood} label={mood} href={`/mood/${mood}`} />
           ))}
         </div>
 

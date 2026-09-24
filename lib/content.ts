@@ -56,3 +56,20 @@ export function getCurrently(): Currently {
   const filePath = path.join(contentRoot, 'currently.json')
   return JSON.parse(fs.readFileSync(filePath, 'utf-8')) as Currently
 }
+
+export function getAllMoods(): Array<{ mood: string; count: number }> {
+  const all = getAllEntries()
+  const counts = new Map<string, number>()
+  all.forEach((e) => e.moods.forEach((m) => counts.set(m, (counts.get(m) ?? 0) + 1)))
+  return Array.from(counts.entries())
+    .map(([mood, count]) => ({ mood, count }))
+    .sort((a, b) => b.count - a.count || a.mood.localeCompare(b.mood))
+}
+
+export function getEntriesByMood(mood: string): Entry[] {
+  return getAllEntries().filter((e) => e.moods.includes(mood))
+}
+
+export function getStayedEntries(): Entry[] {
+  return getAllEntries().filter((e) => e.stayedWithMe)
+}
