@@ -1,0 +1,20 @@
+{
+  "reading": {
+    "title": "The Wind-Up Bird Chronicle",
+    "creator": "Haruki Murakami",
+    "slug": "the-wind-up-bird-chronicle",
+    "href": "/shelf/the-wind-up-bird-chronicle"
+  },
+  "watching": {
+    "title": "Past Lives",
+    "creator": "Celine Song",
+    "slug": "past-lives",
+    "href": "/screen/past-lives"
+  },
+  "listening": {
+    "title": "Carrie & Lowell",
+    "creator": "Sufjan Stevens",
+    "slug": "carrie-and-lowell",
+    "href": "/sound/carrie-and-lowell"
+  }
+}

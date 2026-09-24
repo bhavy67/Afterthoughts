@@ -1,9 +1,18 @@
 export type MediaType = 'novel' | 'film' | 'album' | 'song' | 'documentary' | 'tv'
 
 export type Mood =
-  | 'thought-provoking' | 'feel-good' | 'emotional' | 'nostalgic'
-  | 'dark' | 'comforting' | 'beautiful' | 'slow-burn' | 'funny'
-  | 'inspiring' | 'unsettling' | 'quietly-brilliant'
+  | 'thought-provoking'
+  | 'feel-good'
+  | 'emotional'
+  | 'nostalgic'
+  | 'dark'
+  | 'comforting'
+  | 'beautiful'
+  | 'slow-burn'
+  | 'funny'
+  | 'inspiring'
+  | 'unsettling'
+  | 'quietly-brilliant'
 
 export interface BaseEntry {
   slug: string
@@ -14,7 +23,7 @@ export interface BaseEntry {
   rating: number
   summary: string
   personalNote: string
-  moods: Mood[]
+  moods: string[]
   wouldRecommend: boolean
   stayedWithMe: boolean
   dateAdded: string

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import StarRating from './StarRating'
 import MoodTag from './MoodTag'
 
@@ -7,9 +8,11 @@ interface ItemCardProps {
   year: number
   type: string
   rating: number
-  note: string
+  personalNote?: string
+  note?: string
   moods: string[]
   stayedWithMe?: boolean
+  href?: string
 }
 
 export default function ItemCard({
@@ -18,17 +21,20 @@ export default function ItemCard({
   year,
   type,
   rating,
+  personalNote,
   note,
   moods,
   stayedWithMe,
+  href,
 }: ItemCardProps) {
+  const displayNote = personalNote ?? note ?? ''
   const isFilm = type === 'film' || type === 'documentary' || type === 'tv'
   const artHeight = isFilm ? 134 : 150
 
-  return (
+  const inner = (
     <div
       className="hover:bg-[#F5F4F1] transition-colors duration-200 flex gap-6 md:gap-8 p-6 md:p-11"
-      style={{ backgroundColor: '#FAFAF8' }}
+      style={{ backgroundColor: '#FAFAF8', cursor: href ? 'pointer' : 'default' }}
     >
       {/* Artwork placeholder */}
       <div
@@ -127,7 +133,7 @@ export default function ItemCard({
             marginBottom: '22px',
           }}
         >
-          {note}
+          {displayNote}
         </p>
 
         {/* Footer */}
@@ -173,4 +179,14 @@ export default function ItemCard({
       </div>
     </div>
   )
+
+  if (href) {
+    return (
+      <Link href={href} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+        {inner}
+      </Link>
+    )
+  }
+
+  return inner
 }
