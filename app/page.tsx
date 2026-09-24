@@ -1,69 +1,117 @@
-import Image from "next/image";
+import ItemCard from '@/components/ItemCard'
 
-export default function Home() {
+const featuredItems = [
+  {
+    title: 'Never Let Me Go',
+    creator: 'Kazuo Ishiguro',
+    year: 2005,
+    type: 'novel',
+    rating: 5.0,
+    note: "Read it in one sitting and spent a week quieter than usual. What it says about memory, complicity, and the smallness of our rebellions has no clean resolution — and that's the point.",
+    moods: ['emotional', 'slow-burn'],
+    stayedWithMe: true,
+  },
+  {
+    title: 'Moonlight',
+    creator: 'Barry Jenkins',
+    year: 2016,
+    type: 'film',
+    rating: 5.0,
+    note: "Three chapters, three versions of a person. Jenkins uses light and silence like language. I've thought about the diner scene more than most things that actually happened to me.",
+    moods: ['beautiful', 'quiet'],
+    stayedWithMe: true,
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="max-w-[1400px] mx-auto">
+
+      {/* Hero */}
+      <section className="px-6 md:px-20 pt-16 md:pt-20 pb-12 md:pb-16">
+        <p
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '12px',
+            letterSpacing: '0.16em',
+            color: '#C0503A',
+            marginBottom: '22px',
+          }}
+        >
+          currently on the shelf
+        </p>
+
+        <h1
+          style={{
+            fontFamily: "'Fraunces Variable', 'Fraunces', serif",
+            fontWeight: 300,
+            fontSize: 'clamp(40px, 6.5vw, 80px)',
+            lineHeight: 1.04,
+            letterSpacing: '-0.03em',
+            color: '#1A1A1A',
+            marginBottom: '28px',
+            maxWidth: '820px',
+          }}
+        >
+          Things I&apos;ve read,<br />
+          watched,{' '}
+          <em style={{ fontStyle: 'italic', color: '#C0503A' }}>and carried.</em>
+        </h1>
+
+        <p
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '13px',
+            fontWeight: 300,
+            lineHeight: 1.9,
+            color: '#7A746C',
+            maxWidth: '500px',
+          }}
+        >
+          Not a review platform. Not a catalogue. A personal archive of things
+          that stayed — books, films, albums — and a few words about why.
+        </p>
+      </section>
+
+      {/* Section label */}
+      <div
+        className="flex items-center gap-4 px-6 md:px-20 pt-10 pb-0"
+        style={{ borderTop: '1px solid rgba(26,26,26,0.08)' }}
+      >
+        <span
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '11px',
+            letterSpacing: '0.18em',
+            color: '#B8B2AA',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          recently added
+        </span>
+        <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(26,26,26,0.08)' }} />
+      </div>
+
+      {/* Cards grid */}
+      <div
+        className="grid grid-cols-1 md:grid-cols-2"
+        style={{
+          borderTop: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          marginTop: '32px',
+        }}
+      >
+        {featuredItems.map((item) => (
+          <div
+            key={item.title}
+            style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+            className="md:border-b-0 md:[&:nth-child(odd)]:border-r md:[&:nth-child(odd)]:border-r-[rgba(26,26,26,0.08)]"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <ItemCard {...item} />
+          </div>
+        ))}
+      </div>
+
     </div>
-  );
+  )
 }
