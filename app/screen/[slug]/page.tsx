@@ -1,6 +1,8 @@
 import { getFilm, getAllFilms } from '@/lib/content'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import StarRating from '@/components/StarRating'
+import MoodTag from '@/components/MoodTag'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -23,101 +25,181 @@ export default async function FilmPage({ params }: Props) {
   const film = getFilm(slug)
   if (!film) notFound()
 
-  const fullStars = Math.floor(film.rating)
-  const hasHalf = film.rating % 1 >= 0.5
-  const stars = Array.from({ length: 5 }, (_, i) => {
-    if (i < fullStars) return '★'
-    if (i === fullStars && hasHalf) return '½'
-    return '☆'
-  }).join('')
-
   return (
     <div className="max-w-[1400px] mx-auto px-6 md:px-20">
 
-      {/* Back link */}
-      <div className="pt-10 pb-8">
-        <Link href="/screen" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.12em', color: '#B8B2AA', textDecoration: 'none' }}>
-          ← screen
+      {/* Back */}
+      <div style={{ paddingTop: '40px', paddingBottom: '40px' }}>
+        <Link
+          href="/screen"
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '11px',
+            letterSpacing: '0.14em',
+            color: '#B8B2AA',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+          }}
+        >
+          ← the screen
         </Link>
       </div>
 
-      {/* Main content */}
-      <div className="flex flex-col md:flex-row gap-10 md:gap-16 pb-16">
-
-        {/* Artwork — 16:9 feel */}
-        <div className="shrink-0" style={{ width: '200px' }}>
-          <div style={{ width: '200px', height: '130px', backgroundColor: '#EEECEA', border: '1px solid rgba(26,26,26,0.07)', display: 'flex', alignItems: 'flex-end', padding: '10px' }}>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '9px', color: '#C8C2BA', lineHeight: 1.4 }}>{film.title}</span>
+      {/* Header: artwork right, title block left */}
+      <div
+        className="flex flex-col md:flex-row-reverse"
+        style={{
+          gap: '40px',
+          paddingBottom: '48px',
+          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          alignItems: 'flex-start',
+        }}
+      >
+        {/* Artwork — widescreen proportions */}
+        <div className="shrink-0">
+          <div
+            style={{
+              width: '280px',
+              height: '157px',
+              backgroundColor: '#EEECEA',
+              border: '1px solid rgba(26,26,26,0.07)',
+              display: 'flex',
+              alignItems: 'flex-end',
+              padding: '10px',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: '9px',
+                color: '#C8C2BA',
+                lineHeight: 1.5,
+              }}
+            >
+              {film.title}
+            </span>
           </div>
         </div>
 
-        {/* Content */}
+        {/* Title block */}
         <div style={{ flex: 1, minWidth: 0 }}>
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '11px',
+              letterSpacing: '0.16em',
+              color: '#C0503A',
+              textTransform: 'uppercase',
+              marginBottom: '20px',
+            }}
+          >
+            {film.type} · {film.year}
+          </p>
 
-          {/* Type + Year */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.12em', color: '#C0503A' }}>{film.type}</span>
-            <span style={{ width: '3px', height: '3px', borderRadius: '50%', backgroundColor: '#C8C2BA', display: 'inline-block' }} />
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: '#C8C2BA' }}>{film.year}</span>
-          </div>
-
-          {/* Title */}
-          <h1 style={{ fontFamily: "'Fraunces Variable', 'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(32px, 5vw, 56px)', lineHeight: 1.05, letterSpacing: '-0.025em', color: '#1A1A1A', marginBottom: '10px' }}>
+          <h1
+            style={{
+              fontFamily: "'Fraunces Variable', 'Fraunces', serif",
+              fontWeight: 300,
+              fontSize: 'clamp(36px, 5vw, 68px)',
+              lineHeight: 1.02,
+              letterSpacing: '-0.025em',
+              color: '#1A1A1A',
+              marginBottom: '14px',
+            }}
+          >
             {film.title}
           </h1>
 
-          {/* Creator */}
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: '14px', fontWeight: 300, letterSpacing: '0.04em', color: '#9E9990', marginBottom: '24px' }}>
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '14px',
+              fontWeight: 300,
+              letterSpacing: '0.04em',
+              color: '#9E9990',
+              marginBottom: '28px',
+            }}
+          >
             {film.creator}
           </p>
 
-          {/* Rating */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '32px' }}>
-            <span style={{ color: '#C0503A', fontSize: '16px', letterSpacing: '2px' }}>{stars}</span>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '12px', color: '#B8B2AA' }}>{film.rating.toFixed(1)}</span>
-          </div>
-
-          {/* Divider */}
-          <div style={{ height: '1px', backgroundColor: 'rgba(26,26,26,0.08)', marginBottom: '28px' }} />
-
-          {/* Personal note */}
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: '14px', fontWeight: 300, lineHeight: 2, color: '#4A4540', maxWidth: '600px', marginBottom: '32px' }}>
-            {film.personalNote}
-          </p>
-
-          {/* Divider */}
-          <div style={{ height: '1px', backgroundColor: 'rgba(26,26,26,0.08)', marginBottom: '24px' }} />
-
-          {/* Moods */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
-            {film.moods.map((mood) => (
-              <span key={mood} style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.06em', color: '#9E9990', border: '1px solid rgba(26,26,26,0.12)', padding: '4px 10px' }}>
-                {mood}
-              </span>
-            ))}
-          </div>
-
-          {/* Would rewatch */}
-          {film.wouldRewatch && (
-            <div style={{ marginBottom: '16px' }}>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#C0503A' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            <StarRating rating={film.rating} />
+            {film.wouldRewatch && (
+              <span
+                style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '10px',
+                  letterSpacing: '0.12em',
+                  color: '#C0503A',
+                  border: '1px solid rgba(192,80,58,0.3)',
+                  padding: '4px 10px',
+                  textTransform: 'uppercase',
+                }}
+              >
                 would watch again
               </span>
-            </div>
-          )}
-
-          {/* Stayed with me */}
-          {film.stayedWithMe && (
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#C0503A' }}>
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-                <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
-              </svg>
-              stayed with me
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
+
+      {/* Personal note */}
+      <div style={{ paddingTop: '48px', paddingBottom: '48px' }}>
+        <p
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            lineHeight: 2.0,
+            color: '#3C3830',
+            maxWidth: '680px',
+          }}
+        >
+          {film.personalNote}
+        </p>
+      </div>
+
+      {/* Footer: moods + stayed marker */}
+      <div
+        style={{
+          borderTop: '1px solid rgba(26,26,26,0.08)',
+          paddingTop: '28px',
+          paddingBottom: '64px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '16px',
+        }}
+      >
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {film.moods.map((mood) => (
+            <MoodTag key={mood} label={mood} />
+          ))}
+        </div>
+
+        {film.stayedWithMe && (
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '7px',
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '11px',
+              letterSpacing: '0.1em',
+              color: '#C0503A',
+            }}
+          >
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+              <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
+              <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+            </svg>
+            stayed with me
+          </span>
+        )}
+      </div>
+
     </div>
   )
 }

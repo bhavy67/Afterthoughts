@@ -13,6 +13,7 @@ interface ItemCardProps {
   moods: string[]
   stayedWithMe?: boolean
   href?: string
+  compact?: boolean
 }
 
 export default function ItemCard({
@@ -26,6 +27,7 @@ export default function ItemCard({
   moods,
   stayedWithMe,
   href,
+  compact,
 }: ItemCardProps) {
   const displayNote = personalNote ?? note ?? ''
   const isFilm = type === 'film' || type === 'documentary' || type === 'tv'
@@ -131,6 +133,14 @@ export default function ItemCard({
             lineHeight: 1.85,
             color: '#6E6860',
             marginBottom: '22px',
+            ...(compact
+              ? {
+                  overflow: 'hidden',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical' as const,
+                }
+              : {}),
           }}
         >
           {displayNote}

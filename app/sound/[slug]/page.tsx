@@ -1,6 +1,8 @@
 import { getAlbum, getAllAlbums } from '@/lib/content'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import StarRating from '@/components/StarRating'
+import MoodTag from '@/components/MoodTag'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -23,135 +25,273 @@ export default async function AlbumPage({ params }: Props) {
   const album = getAlbum(slug)
   if (!album) notFound()
 
-  const fullStars = Math.floor(album.rating)
-  const hasHalf = album.rating % 1 >= 0.5
-  const stars = Array.from({ length: 5 }, (_, i) => {
-    if (i < fullStars) return '★'
-    if (i === fullStars && hasHalf) return '½'
-    return '☆'
-  }).join('')
-
   return (
     <div className="max-w-[1400px] mx-auto px-6 md:px-20">
 
-      {/* Back link */}
-      <div className="pt-10 pb-8">
-        <Link href="/sound" style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.12em', color: '#B8B2AA', textDecoration: 'none' }}>
+      {/* Back */}
+      <div style={{ paddingTop: '40px', paddingBottom: '40px' }}>
+        <Link
+          href="/sound"
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '11px',
+            letterSpacing: '0.14em',
+            color: '#B8B2AA',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+          }}
+        >
           ← sound
         </Link>
       </div>
 
-      {/* Main content */}
-      <div className="flex flex-col md:flex-row gap-10 md:gap-16 pb-16">
-
+      {/* Header: artwork right, title block left */}
+      <div
+        className="flex flex-col md:flex-row-reverse"
+        style={{
+          gap: '40px',
+          paddingBottom: '48px',
+          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          alignItems: 'flex-start',
+        }}
+      >
         {/* Artwork — square */}
-        <div className="shrink-0" style={{ width: '160px' }}>
-          <div style={{ width: '160px', height: '160px', backgroundColor: '#EEECEA', border: '1px solid rgba(26,26,26,0.07)', display: 'flex', alignItems: 'flex-end', padding: '10px' }}>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '9px', color: '#C8C2BA', lineHeight: 1.4 }}>{album.title}</span>
+        <div className="shrink-0">
+          <div
+            style={{
+              width: '200px',
+              height: '200px',
+              backgroundColor: '#EEECEA',
+              border: '1px solid rgba(26,26,26,0.07)',
+              display: 'flex',
+              alignItems: 'flex-end',
+              padding: '12px',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: '9px',
+                color: '#C8C2BA',
+                lineHeight: 1.5,
+              }}
+            >
+              {album.title}
+            </span>
           </div>
         </div>
 
-        {/* Content */}
+        {/* Title block */}
         <div style={{ flex: 1, minWidth: 0 }}>
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '11px',
+              letterSpacing: '0.16em',
+              color: '#C0503A',
+              textTransform: 'uppercase',
+              marginBottom: '20px',
+            }}
+          >
+            {album.type} · {album.year}
+          </p>
 
-          {/* Type + Year */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.12em', color: '#C0503A' }}>{album.type}</span>
-            <span style={{ width: '3px', height: '3px', borderRadius: '50%', backgroundColor: '#C8C2BA', display: 'inline-block' }} />
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: '#C8C2BA' }}>{album.year}</span>
-          </div>
-
-          {/* Title */}
-          <h1 style={{ fontFamily: "'Fraunces Variable', 'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(32px, 5vw, 56px)', lineHeight: 1.05, letterSpacing: '-0.025em', color: '#1A1A1A', marginBottom: '10px' }}>
+          <h1
+            style={{
+              fontFamily: "'Fraunces Variable', 'Fraunces', serif",
+              fontWeight: 300,
+              fontSize: 'clamp(36px, 5vw, 68px)',
+              lineHeight: 1.02,
+              letterSpacing: '-0.025em',
+              color: '#1A1A1A',
+              marginBottom: '14px',
+            }}
+          >
             {album.title}
           </h1>
 
-          {/* Creator */}
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: '14px', fontWeight: 300, letterSpacing: '0.04em', color: '#9E9990', marginBottom: '24px' }}>
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '14px',
+              fontWeight: 300,
+              letterSpacing: '0.04em',
+              color: '#9E9990',
+              marginBottom: '28px',
+            }}
+          >
             {album.creator}
           </p>
 
-          {/* Rating */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '32px' }}>
-            <span style={{ color: '#C0503A', fontSize: '16px', letterSpacing: '2px' }}>{stars}</span>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '12px', color: '#B8B2AA' }}>{album.rating.toFixed(1)}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            <StarRating rating={album.rating} />
+            {album.whenDiscovered && (
+              <span
+                style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: '11px',
+                  color: '#B8B2AA',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                discovered {album.whenDiscovered}
+              </span>
+            )}
           </div>
-
-          {/* Divider */}
-          <div style={{ height: '1px', backgroundColor: 'rgba(26,26,26,0.08)', marginBottom: '28px' }} />
-
-          {/* Personal note */}
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: '14px', fontWeight: 300, lineHeight: 2, color: '#4A4540', maxWidth: '600px', marginBottom: '32px' }}>
-            {album.personalNote}
-          </p>
-
-          {/* Divider */}
-          <div style={{ height: '1px', backgroundColor: 'rgba(26,26,26,0.08)', marginBottom: '24px' }} />
-
-          {/* Favourite tracks */}
-          {album.favoriteTracks && album.favoriteTracks.length > 0 && (
-            <div style={{ marginBottom: '24px' }}>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.14em', color: '#B8B2AA', marginBottom: '10px' }}>
-                favourite tracks
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                {album.favoriteTracks.map((track) => (
-                  <span key={track} style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: '#4A4540' }}>
-                    {track}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* When discovered */}
-          {album.whenDiscovered && (
-            <div style={{ marginBottom: '16px' }}>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.14em', color: '#B8B2AA', marginRight: '10px' }}>
-                discovered
-              </span>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: '#4A4540' }}>
-                {album.whenDiscovered}
-              </span>
-            </div>
-          )}
-
-          {/* Why I return */}
-          {album.whyIReturn && (
-            <div style={{ marginBottom: '24px' }}>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.14em', color: '#B8B2AA', marginRight: '10px' }}>
-                why i return
-              </span>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: '#4A4540' }}>
-                {album.whyIReturn}
-              </span>
-            </div>
-          )}
-
-          {/* Divider */}
-          <div style={{ height: '1px', backgroundColor: 'rgba(26,26,26,0.08)', marginBottom: '24px' }} />
-
-          {/* Moods */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
-            {album.moods.map((mood) => (
-              <span key={mood} style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.06em', color: '#9E9990', border: '1px solid rgba(26,26,26,0.12)', padding: '4px 10px' }}>
-                {mood}
-              </span>
-            ))}
-          </div>
-
-          {/* Stayed with me */}
-          {album.stayedWithMe && (
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', fontFamily: "'DM Mono', monospace", fontSize: '11px', letterSpacing: '0.1em', color: '#C0503A' }}>
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-                <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
-              </svg>
-              stayed with me
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Personal note */}
+      <div style={{ paddingTop: '48px', paddingBottom: album.whyIReturn ? '32px' : '48px' }}>
+        <p
+          style={{
+            fontFamily: "'DM Mono', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            lineHeight: 2.0,
+            color: '#3C3830',
+            maxWidth: '680px',
+          }}
+        >
+          {album.personalNote}
+        </p>
+      </div>
+
+      {/* Why I return */}
+      {album.whyIReturn && (
+        <div
+          style={{
+            paddingBottom: '48px',
+            paddingLeft: '24px',
+            borderLeft: '2px solid rgba(192,80,58,0.25)',
+            maxWidth: '560px',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '10px',
+              letterSpacing: '0.16em',
+              color: '#B8B2AA',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}
+          >
+            why I return
+          </p>
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '13px',
+              fontWeight: 300,
+              lineHeight: 1.85,
+              color: '#5C5650',
+            }}
+          >
+            {album.whyIReturn}
+          </p>
+        </div>
+      )}
+
+      {/* Favourite tracks */}
+      {album.favoriteTracks && album.favoriteTracks.length > 0 && (
+        <div
+          style={{
+            paddingBottom: '48px',
+            borderBottom: '1px solid rgba(26,26,26,0.08)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '10px',
+              letterSpacing: '0.16em',
+              color: '#B8B2AA',
+              textTransform: 'uppercase',
+              marginBottom: '16px',
+            }}
+          >
+            favourite tracks
+          </p>
+          <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {album.favoriteTracks.map((track, i) => (
+              <li
+                key={track}
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '14px',
+                  paddingBottom: '10px',
+                  borderBottom: i < album.favoriteTracks!.length - 1 ? '1px solid rgba(26,26,26,0.05)' : undefined,
+                  marginBottom: i < album.favoriteTracks!.length - 1 ? '10px' : undefined,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'DM Mono', monospace",
+                    fontSize: '10px',
+                    color: '#C8C2BA',
+                    minWidth: '16px',
+                    textAlign: 'right',
+                  }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'DM Mono', monospace",
+                    fontSize: '13px',
+                    fontWeight: 300,
+                    color: '#3C3830',
+                  }}
+                >
+                  {track}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {/* Footer: moods + stayed marker */}
+      <div
+        style={{
+          paddingTop: '28px',
+          paddingBottom: '64px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '16px',
+        }}
+      >
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {album.moods.map((mood) => (
+            <MoodTag key={mood} label={mood} />
+          ))}
+        </div>
+
+        {album.stayedWithMe && (
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '7px',
+              fontFamily: "'DM Mono', monospace",
+              fontSize: '11px',
+              letterSpacing: '0.1em',
+              color: '#C0503A',
+            }}
+          >
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+              <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
+              <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+            </svg>
+            stayed with me
+          </span>
+        )}
+      </div>
+
     </div>
   )
 }
