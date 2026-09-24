@@ -25,7 +25,7 @@ export default function ExplorePage() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.18em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             marginBottom: '16px',
             textTransform: 'uppercase',
           }}
@@ -38,7 +38,7 @@ export default function ExplorePage() {
             fontWeight: 300,
             fontSize: 'clamp(36px, 5vw, 64px)',
             letterSpacing: '-0.025em',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             marginBottom: '14px',
           }}
         >
@@ -49,7 +49,7 @@ export default function ExplorePage() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '13px',
             fontWeight: 300,
-            color: '#7A746C',
+            color: 'var(--text-muted)',
             lineHeight: 1.8,
             maxWidth: '420px',
           }}
@@ -65,7 +65,7 @@ export default function ExplorePage() {
           style={{
             paddingTop: '8px',
             paddingBottom: '24px',
-            borderBottom: '1px solid rgba(26,26,26,0.08)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <span
@@ -73,19 +73,19 @@ export default function ExplorePage() {
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.22em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               textTransform: 'uppercase',
               whiteSpace: 'nowrap',
             }}
           >
             by feeling
           </span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(26,26,26,0.08)' }} />
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border)' }} />
         </div>
 
         <div
           className="grid grid-cols-2 md:grid-cols-4"
-          style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+          style={{ borderBottom: '1px solid var(--border)' }}
         >
           {moods.map((item, i) => (
             <Link
@@ -96,13 +96,13 @@ export default function ExplorePage() {
                 textDecoration: 'none',
                 padding: '28px 24px',
                 borderRight:
-                  (i + 1) % 4 !== 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+                  (i + 1) % 4 !== 0 ? '1px solid var(--border)' : undefined,
                 borderBottom:
-                  i < moods.length - 4 ? '1px solid rgba(26,26,26,0.08)' : undefined,
-                backgroundColor: '#FAFAF8',
+                  i < moods.length - 4 ? '1px solid var(--border)' : undefined,
+                backgroundColor: 'var(--bg)',
                 transition: 'background-color 0.2s',
               }}
-              className="hover:bg-[#F5F4F1]"
+              className="hover:bg-[var(--bg-hover)]"
             >
               <p
                 style={{
@@ -110,7 +110,7 @@ export default function ExplorePage() {
                   fontWeight: 300,
                   fontSize: '20px',
                   letterSpacing: '-0.01em',
-                  color: '#1A1A1A',
+                  color: 'var(--text)',
                   marginBottom: '8px',
                   lineHeight: 1.2,
                 }}
@@ -121,7 +121,7 @@ export default function ExplorePage() {
                 style={{
                   fontFamily: "'DM Mono', monospace",
                   fontSize: '11px',
-                  color: '#B8B2AA',
+                  color: 'var(--text-faint)',
                   letterSpacing: '0.06em',
                 }}
               >
@@ -139,7 +139,7 @@ export default function ExplorePage() {
           style={{
             paddingTop: '40px',
             paddingBottom: '24px',
-            borderBottom: '1px solid rgba(26,26,26,0.08)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <span
@@ -150,23 +150,23 @@ export default function ExplorePage() {
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.22em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               textTransform: 'uppercase',
               whiteSpace: 'nowrap',
             }}
           >
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-              <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-              <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" style={{ color: 'var(--accent)' }}>
+              <circle cx="4" cy="4" r="3.5" stroke="currentColor" />
+              <circle cx="4" cy="4" r="1.5" fill="currentColor" />
             </svg>
             stayed with me
           </span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(26,26,26,0.08)' }} />
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border)' }} />
         </div>
 
         <div
           className="grid grid-cols-1 md:grid-cols-2"
-          style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+          style={{ borderBottom: '1px solid var(--border)' }}
         >
           {stayed.map((entry, i) => (
             <div
@@ -174,9 +174,9 @@ export default function ExplorePage() {
               style={{
                 borderBottom:
                   i < stayed.length - (stayed.length % 2 === 0 ? 2 : 1)
-                    ? '1px solid rgba(26,26,26,0.08)'
+                    ? '1px solid var(--border)'
                     : undefined,
-                borderRight: i % 2 === 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+                borderRight: i % 2 === 0 ? '1px solid var(--border)' : undefined,
               }}
             >
               <ItemCard {...entry} href={entryHref(entry)} compact />

@@ -15,10 +15,10 @@ function CategoryPanel({ href, eyebrow, title, count }: CategoryPanelProps) {
       className="group"
     >
       <div
-        className="group-hover:bg-[#F5F4F1] transition-colors duration-200"
+        className="group-hover:bg-[var(--bg-hover)] transition-colors duration-200"
         style={{
           padding: '36px',
-          borderTop: '1px solid rgba(26,26,26,0.08)',
+          borderTop: '1px solid var(--border)',
           height: '100%',
         }}
       >
@@ -27,7 +27,7 @@ function CategoryPanel({ href, eyebrow, title, count }: CategoryPanelProps) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '10px',
             letterSpacing: '0.2em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textTransform: 'uppercase' as const,
             marginBottom: '16px',
           }}
@@ -40,7 +40,7 @@ function CategoryPanel({ href, eyebrow, title, count }: CategoryPanelProps) {
             fontWeight: 300,
             fontSize: '36px',
             letterSpacing: '-0.02em',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             lineHeight: 1,
             marginBottom: '20px',
           }}
@@ -59,7 +59,7 @@ function CategoryPanel({ href, eyebrow, title, count }: CategoryPanelProps) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               fontWeight: 300,
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               letterSpacing: '0.06em',
             }}
           >
@@ -69,7 +69,7 @@ function CategoryPanel({ href, eyebrow, title, count }: CategoryPanelProps) {
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: '14px',
-              color: '#C0503A',
+              color: 'var(--accent)',
               transition: 'transform 0.2s',
               display: 'inline-block',
             }}
@@ -94,13 +94,13 @@ export default function CategoryRow({ bookCount, filmCount, albumCount }: Catego
     <div
       className="grid grid-cols-1 md:grid-cols-3"
       style={{
-        borderBottom: '1px solid rgba(26,26,26,0.08)',
+        borderBottom: '1px solid var(--border)',
       }}
     >
-      <div style={{ borderRight: '1px solid rgba(26,26,26,0.08)' }}>
+      <div style={{ borderRight: '1px solid var(--border)' }}>
         <CategoryPanel href="/shelf" eyebrow="the shelf" title="Books" count={bookCount} />
       </div>
-      <div style={{ borderRight: '1px solid rgba(26,26,26,0.08)' }}>
+      <div style={{ borderRight: '1px solid var(--border)' }}>
         <CategoryPanel href="/screen" eyebrow="the screen" title="Films & TV" count={filmCount} />
       </div>
       <div>

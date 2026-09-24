@@ -10,8 +10,8 @@ export default function MoodTag({ label, href }: MoodTagProps) {
     fontFamily: "'DM Mono', monospace",
     fontSize: '11px',
     letterSpacing: '0.06em',
-    color: '#9E9990',
-    border: '1px solid rgba(26,26,26,0.12)',
+    color: 'var(--text-subtle)',
+    border: '1px solid var(--border-tag)',
     padding: '4px 10px',
     display: 'inline-block',
   }

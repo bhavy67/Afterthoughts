@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: '1px solid rgba(26,26,26,0.08)',
+        borderTop: '1px solid var(--border)',
         marginTop: '80px',
         padding: '48px 24px',
       }}
@@ -20,13 +20,13 @@ export default function Footer() {
           margin: '0 auto',
         }}
       >
-        <AtLogo size={24} color="#C0503A" />
+        <AtLogo size={24} color="var(--accent)" />
         <span
           style={{
             fontFamily: "'Fraunces Variable', 'Fraunces', serif",
             fontWeight: 400,
             fontSize: '18px',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             letterSpacing: '-0.01em',
           }}
         >
@@ -37,7 +37,7 @@ export default function Footer() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '12px',
             fontWeight: 300,
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             letterSpacing: '0.06em',
           }}
         >
@@ -49,7 +49,7 @@ export default function Footer() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             fontWeight: 300,
-            color: '#C8C2BA',
+            color: 'var(--text-ghost)',
             letterSpacing: '0.08em',
             textDecoration: 'none',
             marginTop: '4px',

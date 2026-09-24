@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import AtLogo from './AtLogo'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
   { href: '/shelf', label: 'shelf' },
@@ -21,10 +22,10 @@ export default function Nav() {
       {/* ── Top bar ── */}
       <header
         style={{
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
           position: 'sticky',
           top: 0,
-          backgroundColor: '#FAFAF8',
+          backgroundColor: 'var(--bg)',
           zIndex: 50,
         }}
       >
@@ -32,13 +33,13 @@ export default function Nav() {
 
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
-            <AtLogo size={26} color="#C0503A" />
+            <AtLogo size={26} color="var(--accent)" />
             <span
               style={{
                 fontFamily: "'Fraunces Variable', 'Fraunces', serif",
                 fontWeight: 400,
                 fontSize: '21px',
-                color: '#1A1A1A',
+                color: 'var(--text)',
                 letterSpacing: '-0.015em',
               }}
             >
@@ -46,7 +47,7 @@ export default function Nav() {
             </span>
           </Link>
 
-          {/* Desktop links */}
+          {/* Desktop links + controls */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center" style={{ gap: '36px' }}>
             {links.map(({ href, label }) => {
               const active = pathname === href || pathname.startsWith(href + '/')
@@ -60,9 +61,9 @@ export default function Nav() {
                     fontWeight: 300,
                     letterSpacing: '0.08em',
                     textDecoration: 'none',
-                    color: active ? '#1A1A1A' : '#9E9990',
+                    color: active ? 'var(--text)' : 'var(--text-subtle)',
                     transition: 'color 0.15s',
-                    borderBottom: active ? '1px solid #1A1A1A' : '1px solid transparent',
+                    borderBottom: active ? '1px solid var(--text)' : '1px solid transparent',
                     paddingBottom: '2px',
                   }}
                 >
@@ -70,21 +71,26 @@ export default function Nav() {
                 </Link>
               )
             })}
+
+            {/* Search */}
             <Link
               href="/search"
               aria-label="Search"
               style={{
-                color: pathname === '/search' ? '#1A1A1A' : '#9E9990',
+                color: pathname === '/search' ? 'var(--text)' : 'var(--text-subtle)',
                 display: 'flex',
                 alignItems: 'center',
                 transition: 'color 0.15s',
               }}
             >
-              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                 <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.25" />
                 <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
               </svg>
             </Link>
+
+            {/* Theme toggle */}
+            <ThemeToggle />
           </nav>
 
           {/* Hamburger — mobile only */}
@@ -94,9 +100,9 @@ export default function Nav() {
             aria-label="Open menu"
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '6px' }}
           >
-            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: '#1A1A1A' }} />
-            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: '#1A1A1A' }} />
-            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: '#1A1A1A' }} />
+            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: 'var(--text)' }} />
+            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: 'var(--text)' }} />
+            <span style={{ display: 'block', width: '20px', height: '1.5px', backgroundColor: 'var(--text)' }} />
           </button>
 
         </div>
@@ -107,7 +113,7 @@ export default function Nav() {
         className="md:hidden fixed inset-0"
         onClick={() => setOpen(false)}
         style={{
-          backgroundColor: 'rgba(26,26,26,0.35)',
+          backgroundColor: 'var(--overlay)',
           zIndex: 90,
           opacity: open ? 1 : 0,
           pointerEvents: open ? 'auto' : 'none',
@@ -121,11 +127,11 @@ export default function Nav() {
         className="md:hidden fixed top-0 right-0 h-full flex flex-col"
         style={{
           width: '260px',
-          backgroundColor: '#FAFAF8',
+          backgroundColor: 'var(--bg)',
           zIndex: 100,
           transform: open ? 'translateX(0)' : 'translateX(100%)',
           transition: 'transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)',
-          borderLeft: '1px solid rgba(26,26,26,0.08)',
+          borderLeft: '1px solid var(--border)',
         }}
         aria-label="Mobile navigation"
       >
@@ -134,7 +140,7 @@ export default function Nav() {
           className="flex items-center justify-between"
           style={{
             padding: '18px 24px',
-            borderBottom: '1px solid rgba(26,26,26,0.08)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <span
@@ -142,7 +148,7 @@ export default function Nav() {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.18em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
             }}
           >
             menu
@@ -157,7 +163,7 @@ export default function Nav() {
               padding: '4px',
               fontFamily: "'DM Mono', monospace",
               fontSize: '16px',
-              color: '#9E9990',
+              color: 'var(--text-subtle)',
               lineHeight: 1,
               display: 'flex',
               alignItems: 'center',
@@ -183,10 +189,10 @@ export default function Nav() {
                   fontWeight: 300,
                   fontSize: '28px',
                   letterSpacing: '-0.01em',
-                  color: active ? '#1A1A1A' : '#C8C2BA',
+                  color: active ? 'var(--text)' : 'var(--text-ghost)',
                   textDecoration: 'none',
                   padding: '16px 24px',
-                  borderBottom: '1px solid rgba(26,26,26,0.05)',
+                  borderBottom: '1px solid var(--border-faint)',
                   transition: 'color 0.15s',
                 }}
               >
@@ -203,10 +209,10 @@ export default function Nav() {
               fontWeight: 300,
               fontSize: '28px',
               letterSpacing: '-0.01em',
-              color: pathname === '/search' ? '#1A1A1A' : '#C8C2BA',
+              color: pathname === '/search' ? 'var(--text)' : 'var(--text-ghost)',
               textDecoration: 'none',
               padding: '16px 24px',
-              borderBottom: '1px solid rgba(26,26,26,0.05)',
+              borderBottom: '1px solid var(--border-faint)',
               transition: 'color 0.15s',
             }}
           >
@@ -214,18 +220,28 @@ export default function Nav() {
           </Link>
         </nav>
 
-        {/* Panel footer */}
-        <div style={{ marginTop: 'auto', padding: '24px', borderTop: '1px solid rgba(26,26,26,0.06)' }}>
+        {/* Panel footer — theme toggle + tagline */}
+        <div
+          style={{
+            marginTop: 'auto',
+            padding: '20px 24px',
+            borderTop: '1px solid var(--border-faint)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
           <span
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.12em',
-              color: '#C8C2BA',
+              color: 'var(--text-ghost)',
             }}
           >
             things that stayed with me.
           </span>
+          <ThemeToggle />
         </div>
       </div>
     </>

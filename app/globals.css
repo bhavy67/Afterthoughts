@@ -14,19 +14,80 @@
   --font-mono: 'DM Mono', monospace;
 }
 
+/* ── Design tokens ──────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg: #FAFAF8;
+  --bg-secondary: #F3F2EE;
+  --bg-muted: #EEECEA;
+  --bg-hover: #F0EBE4;
+
+  /* Text */
+  --text: #1A1A1A;
+  --text-body: #3C3830;
+  --text-body-alt: #5C5650;
+  --text-muted: #7A746C;
+  --text-subtle: #9E9990;
+  --text-faint: #B8B2AA;
+  --text-ghost: #C8C2BA;
+
+  /* Accent */
+  --accent: #C0503A;
+
+  /* Borders */
+  --border: rgba(26, 26, 26, 0.08);
+  --border-faint: rgba(26, 26, 26, 0.06);
+  --border-tag: rgba(26, 26, 26, 0.12);
+  --border-input: rgba(26, 26, 26, 0.2);
+  --overlay: rgba(26, 26, 26, 0.35);
+
+  /* Accent alphas */
+  --accent-border: rgba(192, 80, 58, 0.3);
+  --accent-border-subtle: rgba(192, 80, 58, 0.25);
+}
+
+[data-theme='dark'] {
+  --bg: #141410;
+  --bg-secondary: #1A1A16;
+  --bg-muted: #252520;
+  --bg-hover: #1E1E1A;
+
+  --text: #E8E2D8;
+  --text-body: #C4BEB6;
+  --text-body-alt: #9E9890;
+  --text-muted: #9E9890;
+  --text-subtle: #7A7268;
+  --text-faint: #5C5650;
+  --text-ghost: #4A4640;
+
+  --accent: #D4614A;
+
+  --border: rgba(232, 226, 216, 0.08);
+  --border-faint: rgba(232, 226, 216, 0.06);
+  --border-tag: rgba(232, 226, 216, 0.12);
+  --border-input: rgba(232, 226, 216, 0.2);
+  --overlay: rgba(0, 0, 0, 0.65);
+
+  --accent-border: rgba(212, 97, 74, 0.3);
+  --accent-border-subtle: rgba(212, 97, 74, 0.25);
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #FAFAF8;
-  color: #1A1A1A;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: 'DM Mono', monospace;
   -webkit-font-smoothing: antialiased;
 }
 
 :focus-visible {
-  outline: 2px solid #C0503A;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -36,8 +97,8 @@ body {
   top: -100%;
   transform: translateX(-50%);
   padding: 8px 20px;
-  background: #C0503A;
-  color: #FAFAF8;
+  background: var(--accent);
+  color: var(--bg);
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;

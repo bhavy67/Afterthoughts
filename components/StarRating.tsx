@@ -13,14 +13,14 @@ export default function StarRating({ rating }: StarRatingProps) {
 
   return (
     <div style={{ display: 'flex', alignItems: 'baseline', gap: '7px' }}>
-      <span style={{ color: '#C0503A', fontSize: '15px', letterSpacing: '2px' }}>
+      <span style={{ color: 'var(--accent)', fontSize: '15px', letterSpacing: '2px' }}>
         {stars.join('')}
       </span>
       <span
         style={{
           fontFamily: "'DM Mono', monospace",
           fontSize: '12px',
-          color: '#B8B2AA',
+          color: 'var(--text-faint)',
         }}
       >
         {rating.toFixed(1)}

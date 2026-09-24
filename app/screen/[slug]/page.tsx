@@ -39,7 +39,7 @@ export default async function FilmPage({ params }: Props) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.14em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textDecoration: 'none',
             textTransform: 'uppercase',
           }}
@@ -54,7 +54,7 @@ export default async function FilmPage({ params }: Props) {
         style={{
           gap: '40px',
           paddingBottom: '48px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
           alignItems: 'flex-start',
         }}
       >
@@ -66,8 +66,8 @@ export default async function FilmPage({ params }: Props) {
               height: '157px',
               position: 'relative',
               overflow: 'hidden',
-              backgroundColor: '#EEECEA',
-              border: '1px solid rgba(26,26,26,0.07)',
+              backgroundColor: 'var(--bg-muted)',
+              border: '1px solid var(--border-faint)',
             }}
           >
             <CoverImage
@@ -75,7 +75,7 @@ export default async function FilmPage({ params }: Props) {
               alt={film.title}
               sizes="280px"
               fallback={
-                <span style={{ position: 'absolute', bottom: '10px', left: '10px', fontFamily: "'DM Mono', monospace", fontSize: '9px', color: '#C8C2BA', lineHeight: 1.5 }}>
+                <span style={{ position: 'absolute', bottom: '10px', left: '10px', fontFamily: "'DM Mono', monospace", fontSize: '9px', color: 'var(--text-ghost)', lineHeight: 1.5 }}>
                   {film.title}
                 </span>
               }
@@ -90,7 +90,7 @@ export default async function FilmPage({ params }: Props) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.16em',
-              color: '#C0503A',
+              color: 'var(--accent)',
               textTransform: 'uppercase',
               marginBottom: '20px',
             }}
@@ -105,7 +105,7 @@ export default async function FilmPage({ params }: Props) {
               fontSize: 'clamp(36px, 5vw, 68px)',
               lineHeight: 1.02,
               letterSpacing: '-0.025em',
-              color: '#1A1A1A',
+              color: 'var(--text)',
               marginBottom: '14px',
             }}
           >
@@ -118,7 +118,7 @@ export default async function FilmPage({ params }: Props) {
               fontSize: '14px',
               fontWeight: 300,
               letterSpacing: '0.04em',
-              color: '#9E9990',
+              color: 'var(--text-subtle)',
               marginBottom: '28px',
             }}
           >
@@ -133,8 +133,8 @@ export default async function FilmPage({ params }: Props) {
                   fontFamily: "'DM Mono', monospace",
                   fontSize: '10px',
                   letterSpacing: '0.12em',
-                  color: '#C0503A',
-                  border: '1px solid rgba(192,80,58,0.3)',
+                  color: 'var(--accent)',
+                  border: '1px solid var(--accent-border)',
                   padding: '4px 10px',
                   textTransform: 'uppercase',
                 }}
@@ -154,7 +154,7 @@ export default async function FilmPage({ params }: Props) {
             fontSize: '15px',
             fontWeight: 300,
             lineHeight: 2.0,
-            color: '#3C3830',
+            color: 'var(--text-body)',
             maxWidth: '680px',
           }}
         >
@@ -165,7 +165,7 @@ export default async function FilmPage({ params }: Props) {
       {/* Footer: moods + stayed marker */}
       <div
         style={{
-          borderTop: '1px solid rgba(26,26,26,0.08)',
+          borderTop: '1px solid var(--border)',
           paddingTop: '28px',
           paddingBottom: '64px',
           display: 'flex',
@@ -190,12 +190,12 @@ export default async function FilmPage({ params }: Props) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.1em',
-              color: '#C0503A',
+              color: 'var(--accent)',
             }}
           >
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-              <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-              <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+              <circle cx="4" cy="4" r="3.5" stroke="currentColor" />
+              <circle cx="4" cy="4" r="1.5" fill="currentColor" />
             </svg>
             stayed with me
           </span>

@@ -39,7 +39,7 @@ export default async function BookPage({ params }: Props) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.14em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textDecoration: 'none',
             textTransform: 'uppercase',
           }}
@@ -54,7 +54,7 @@ export default async function BookPage({ params }: Props) {
         style={{
           gap: '40px',
           paddingBottom: '48px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
           alignItems: 'flex-start',
         }}
       >
@@ -66,8 +66,8 @@ export default async function BookPage({ params }: Props) {
               height: '252px',
               position: 'relative',
               overflow: 'hidden',
-              backgroundColor: '#EEECEA',
-              border: '1px solid rgba(26,26,26,0.07)',
+              backgroundColor: 'var(--bg-muted)',
+              border: '1px solid var(--border-faint)',
             }}
           >
             <CoverImage
@@ -75,7 +75,7 @@ export default async function BookPage({ params }: Props) {
               alt={book.title}
               sizes="180px"
               fallback={
-                <span style={{ position: 'absolute', bottom: '12px', left: '12px', fontFamily: "'DM Mono', monospace", fontSize: '9px', color: '#C8C2BA', lineHeight: 1.5 }}>
+                <span style={{ position: 'absolute', bottom: '12px', left: '12px', fontFamily: "'DM Mono', monospace", fontSize: '9px', color: 'var(--text-ghost)', lineHeight: 1.5 }}>
                   {book.title}
                 </span>
               }
@@ -90,7 +90,7 @@ export default async function BookPage({ params }: Props) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.16em',
-              color: '#C0503A',
+              color: 'var(--accent)',
               textTransform: 'uppercase',
               marginBottom: '20px',
             }}
@@ -105,7 +105,7 @@ export default async function BookPage({ params }: Props) {
               fontSize: 'clamp(36px, 5vw, 68px)',
               lineHeight: 1.02,
               letterSpacing: '-0.025em',
-              color: '#1A1A1A',
+              color: 'var(--text)',
               marginBottom: '14px',
             }}
           >
@@ -118,7 +118,7 @@ export default async function BookPage({ params }: Props) {
               fontSize: '14px',
               fontWeight: 300,
               letterSpacing: '0.04em',
-              color: '#9E9990',
+              color: 'var(--text-subtle)',
               marginBottom: '28px',
             }}
           >
@@ -137,7 +137,7 @@ export default async function BookPage({ params }: Props) {
             fontSize: '15px',
             fontWeight: 300,
             lineHeight: 2.0,
-            color: '#3C3830',
+            color: 'var(--text-body)',
             maxWidth: '680px',
           }}
         >
@@ -150,7 +150,7 @@ export default async function BookPage({ params }: Props) {
         <div
           style={{
             paddingBottom: '48px',
-            borderBottom: '1px solid rgba(26,26,26,0.08)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <p
@@ -158,7 +158,7 @@ export default async function BookPage({ params }: Props) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.16em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               textTransform: 'uppercase',
               marginBottom: '20px',
             }}
@@ -167,7 +167,7 @@ export default async function BookPage({ params }: Props) {
           </p>
           <blockquote
             style={{
-              borderLeft: '2px solid rgba(192,80,58,0.35)',
+              borderLeft: '2px solid var(--accent-border)',
               paddingLeft: '24px',
               margin: 0,
               maxWidth: '600px',
@@ -180,7 +180,7 @@ export default async function BookPage({ params }: Props) {
                 fontWeight: 300,
                 fontSize: '18px',
                 lineHeight: 1.65,
-                color: '#5C5650',
+                color: 'var(--text-body-alt)',
               }}
             >
               &ldquo;{book.favoriteQuote}&rdquo;
@@ -216,12 +216,12 @@ export default async function BookPage({ params }: Props) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.1em',
-              color: '#C0503A',
+              color: 'var(--accent)',
             }}
           >
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-              <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-              <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+              <circle cx="4" cy="4" r="3.5" stroke="currentColor" />
+              <circle cx="4" cy="4" r="1.5" fill="currentColor" />
             </svg>
             stayed with me
           </span>

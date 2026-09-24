@@ -56,7 +56,7 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
         style={{
           paddingTop: '20px',
           paddingBottom: '20px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
         }}
       >
         <div
@@ -72,7 +72,7 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.16em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               textTransform: 'uppercase',
             }}
           >
@@ -82,7 +82,7 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               letterSpacing: '0.06em',
             }}
           >
@@ -109,7 +109,7 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
               fontFamily: "'DM Mono', monospace",
               fontSize: '13px',
               fontWeight: 300,
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
             }}
           >
             nothing here yet.
@@ -119,7 +119,7 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
         <motion.div
           key={`${selectedMood}-${stayedOnly}`}
           className="grid grid-cols-1 md:grid-cols-2"
-          style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+          style={{ borderBottom: '1px solid var(--border)' }}
           variants={shouldReduce ? undefined : { show: { transition: { staggerChildren: 0.05 } } }}
           initial={shouldReduce ? false : 'hidden'}
           animate="show"
@@ -131,9 +131,9 @@ export default function CategoryGrid({ items }: CategoryGridProps) {
               style={{
                 borderBottom:
                   i < filtered.length - (filtered.length % 2 === 0 ? 2 : 1)
-                    ? '1px solid rgba(26,26,26,0.08)'
+                    ? '1px solid var(--border)'
                     : undefined,
-                borderRight: i % 2 === 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+                borderRight: i % 2 === 0 ? '1px solid var(--border)' : undefined,
               }}
             >
               <ItemCard {...item} compact />

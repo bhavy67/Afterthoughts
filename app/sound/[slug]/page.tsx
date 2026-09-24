@@ -39,7 +39,7 @@ export default async function AlbumPage({ params }: Props) {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.14em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textDecoration: 'none',
             textTransform: 'uppercase',
           }}
@@ -54,7 +54,7 @@ export default async function AlbumPage({ params }: Props) {
         style={{
           gap: '40px',
           paddingBottom: '48px',
-          borderBottom: '1px solid rgba(26,26,26,0.08)',
+          borderBottom: '1px solid var(--border)',
           alignItems: 'flex-start',
         }}
       >
@@ -66,8 +66,8 @@ export default async function AlbumPage({ params }: Props) {
               height: '200px',
               position: 'relative',
               overflow: 'hidden',
-              backgroundColor: '#EEECEA',
-              border: '1px solid rgba(26,26,26,0.07)',
+              backgroundColor: 'var(--bg-muted)',
+              border: '1px solid var(--border-faint)',
             }}
           >
             <CoverImage

@@ -38,8 +38,8 @@ export default function ItemCard({
 
   const inner = (
     <div
-      className="hover:bg-[#F5F4F1] transition-colors duration-200 flex gap-6 md:gap-8 p-6 md:p-11"
-      style={{ backgroundColor: '#FAFAF8', cursor: href ? 'pointer' : 'default' }}
+      className="hover:bg-[var(--bg-hover)] transition-colors duration-200 flex gap-6 md:gap-8 p-6 md:p-11"
+      style={{ backgroundColor: 'var(--bg)', cursor: href ? 'pointer' : 'default' }}
     >
       {/* Artwork */}
       <div
@@ -49,8 +49,8 @@ export default function ItemCard({
           height: `${Math.round(artHeight * 0.8)}px`,
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#EEECEA',
-          border: '1px solid rgba(26,26,26,0.07)',
+          backgroundColor: 'var(--bg-muted)',
+          border: '1px solid var(--border-faint)',
         }}
       >
         <CoverImage
@@ -65,7 +65,7 @@ export default function ItemCard({
                 left: '6px',
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '9px',
-                color: '#C8C2BA',
+                color: 'var(--text-ghost)',
                 lineHeight: 1.4,
               }}
             >
@@ -84,7 +84,7 @@ export default function ItemCard({
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
               letterSpacing: '0.1em',
-              color: '#C0503A',
+              color: 'var(--accent)',
             }}
           >
             {type}
@@ -94,7 +94,7 @@ export default function ItemCard({
               width: '3px',
               height: '3px',
               borderRadius: '50%',
-              backgroundColor: '#C8C2BA',
+              backgroundColor: 'var(--text-ghost)',
               display: 'inline-block',
             }}
           />
@@ -102,7 +102,7 @@ export default function ItemCard({
             style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: '11px',
-              color: '#C8C2BA',
+              color: 'var(--text-ghost)',
             }}
           >
             {year}
@@ -116,7 +116,7 @@ export default function ItemCard({
             fontWeight: 400,
             fontSize: 'clamp(20px, 3vw, 28px)',
             lineHeight: 1.1,
-            color: '#1A1A1A',
+            color: 'var(--text)',
             letterSpacing: '-0.01em',
             marginBottom: '6px',
           }}
@@ -131,7 +131,7 @@ export default function ItemCard({
             fontWeight: 300,
             fontSize: '13px',
             letterSpacing: '0.04em',
-            color: '#9E9990',
+            color: 'var(--text-subtle)',
             marginBottom: '18px',
           }}
         >
@@ -145,7 +145,7 @@ export default function ItemCard({
             fontSize: '13px',
             fontWeight: 300,
             lineHeight: 1.85,
-            color: '#6E6860',
+            color: 'var(--text-body)',
             marginBottom: '22px',
             ...(compact
               ? {
@@ -189,12 +189,12 @@ export default function ItemCard({
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '11px',
                 letterSpacing: '0.1em',
-                color: '#C0503A',
+                color: 'var(--accent)',
               }}
             >
               <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                <circle cx="4" cy="4" r="3.5" stroke="#C0503A" />
-                <circle cx="4" cy="4" r="1.5" fill="#C0503A" />
+                <circle cx="4" cy="4" r="3.5" stroke="currentColor" />
+                <circle cx="4" cy="4" r="1.5" fill="currentColor" />
               </svg>
               stayed with me
             </span>

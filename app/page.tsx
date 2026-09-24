@@ -22,7 +22,7 @@ export default function HomePage() {
             fontFamily: "'DM Mono', monospace",
             fontSize: '11px',
             letterSpacing: '0.2em',
-            color: '#C0503A',
+            color: 'var(--accent)',
             marginBottom: '24px',
             textTransform: 'uppercase',
           }}
@@ -36,14 +36,14 @@ export default function HomePage() {
             fontSize: 'clamp(42px, 6.5vw, 88px)',
             lineHeight: 1.02,
             letterSpacing: '-0.03em',
-            color: '#1A1A1A',
+            color: 'var(--text)',
             marginBottom: '32px',
             maxWidth: '860px',
           }}
         >
           Books, films,<br />
           and music I&apos;ve{' '}
-          <em style={{ fontStyle: 'italic', color: '#C0503A' }}>carried.</em>
+          <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>carried.</em>
         </h1>
         <p
           style={{
@@ -51,7 +51,7 @@ export default function HomePage() {
             fontSize: '13px',
             fontWeight: 300,
             lineHeight: 1.95,
-            color: '#7A746C',
+            color: 'var(--text-muted)',
             maxWidth: '480px',
           }}
         >
@@ -76,7 +76,7 @@ export default function HomePage() {
           style={{
             paddingTop: '48px',
             paddingBottom: '32px',
-            borderBottom: '1px solid rgba(26,26,26,0.08)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <span
@@ -84,20 +84,20 @@ export default function HomePage() {
               fontFamily: "'DM Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.22em',
-              color: '#B8B2AA',
+              color: 'var(--text-faint)',
               textTransform: 'uppercase',
               whiteSpace: 'nowrap',
             }}
           >
             recently added
           </span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(26,26,26,0.08)' }} />
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border)' }} />
         </div>
 
         {/* Cards grid */}
         <div
           className="grid grid-cols-1 md:grid-cols-2"
-          style={{ borderBottom: '1px solid rgba(26,26,26,0.08)' }}
+          style={{ borderBottom: '1px solid var(--border)' }}
         >
           {recent.map((item, i) => {
             const category =
@@ -112,10 +112,10 @@ export default function HomePage() {
                 style={{
                   borderBottom:
                     i < recent.length - 2
-                      ? '1px solid rgba(26,26,26,0.08)'
+                      ? '1px solid var(--border)'
                       : undefined,
                   borderRight:
-                    i % 2 === 0 ? '1px solid rgba(26,26,26,0.08)' : undefined,
+                    i % 2 === 0 ? '1px solid var(--border)' : undefined,
                 }}
               >
                 <ItemCard

@@ -22,9 +22,9 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
   return (
     <div
       style={{
-        backgroundColor: '#F3F2EE',
-        borderTop: '1px solid rgba(26,26,26,0.08)',
-        borderBottom: '1px solid rgba(26,26,26,0.08)',
+        backgroundColor: 'var(--bg-secondary)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
       }}
     >
       {/* Section eyebrow */}
@@ -37,14 +37,14 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
             fontFamily: "'DM Mono', monospace",
             fontSize: '10px',
             letterSpacing: '0.22em',
-            color: '#B8B2AA',
+            color: 'var(--text-faint)',
             textTransform: 'uppercase' as const,
             whiteSpace: 'nowrap' as const,
           }}
         >
           currently
         </span>
-        <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(26,26,26,0.08)' }} />
+        <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--border)' }} />
       </div>
 
       {/* Three columns */}
@@ -58,7 +58,7 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
             className={[
               'py-4 md:py-0',
               i > 0
-                ? 'border-t border-[rgba(26,26,26,0.06)] md:border-t-0 md:border-l md:border-[rgba(26,26,26,0.08)] md:pl-8'
+                ? 'border-t border-[var(--border-faint)] md:border-t-0 md:border-l md:border-[var(--border)] md:pl-8'
                 : '',
               i < 2 ? 'md:pr-8' : '',
             ].join(' ')}
@@ -68,7 +68,7 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '10px',
                 letterSpacing: '0.2em',
-                color: '#B8B2AA',
+                color: 'var(--text-faint)',
                 textTransform: 'uppercase' as const,
                 marginBottom: '10px',
               }}
@@ -85,12 +85,12 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
                   fontWeight: 400,
                   fontSize: '22px',
                   lineHeight: 1.15,
-                  color: '#1A1A1A',
+                  color: 'var(--text)',
                   letterSpacing: '-0.01em',
                   marginBottom: '6px',
                   transition: 'color 0.15s',
                 }}
-                className="hover:text-[#C0503A]"
+                className="hover:text-[var(--accent)]"
               >
                 {item.title}
               </p>
@@ -100,7 +100,7 @@ export default function CurrentlyStrip({ reading, watching, listening }: Current
                 fontFamily: "'DM Mono', monospace",
                 fontSize: '12px',
                 fontWeight: 300,
-                color: '#9E9990',
+                color: 'var(--text-subtle)',
               }}
             >
               {item.creator}
