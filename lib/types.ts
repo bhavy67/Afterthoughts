@@ -27,6 +27,7 @@ export interface BaseEntry {
   wouldRecommend: boolean
   stayedWithMe: boolean
   dateAdded: string
+  coverUrl?: string
 }
 
 export interface BookEntry extends BaseEntry {

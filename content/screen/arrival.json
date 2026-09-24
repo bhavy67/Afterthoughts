@@ -7,9 +7,14 @@
   "rating": 5.0,
   "summary": "A linguist is brought in to communicate with alien visitors. The film is really about time, grief, and what it means to choose.",
   "personalNote": "The twist recontextualises everything, but unlike most films with twists, the rewatch is better than the first viewing. It becomes a film about accepting loss rather than escaping it. Amy Adams carries the whole thing with barely any dialogue. Villeneuve at his most precise.",
-  "moods": ["thought-provoking", "emotional", "slow-burn"],
+  "moods": [
+    "thought-provoking",
+    "emotional",
+    "slow-burn"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-02-14",
-  "wouldRewatch": true
+  "wouldRewatch": true,
+  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Arrival_%28film%29_poster.jpg"
 }

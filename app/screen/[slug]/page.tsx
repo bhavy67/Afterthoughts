@@ -4,6 +4,7 @@ import Link from 'next/link'
 import StarRating from '@/components/StarRating'
 import MoodTag from '@/components/MoodTag'
 import FadeIn from '@/components/FadeIn'
+import CoverImage from '@/components/CoverImage'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -63,23 +64,22 @@ export default async function FilmPage({ params }: Props) {
             style={{
               width: '280px',
               height: '157px',
+              position: 'relative',
+              overflow: 'hidden',
               backgroundColor: '#EEECEA',
               border: '1px solid rgba(26,26,26,0.07)',
-              display: 'flex',
-              alignItems: 'flex-end',
-              padding: '10px',
             }}
           >
-            <span
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: '9px',
-                color: '#C8C2BA',
-                lineHeight: 1.5,
-              }}
-            >
-              {film.title}
-            </span>
+            <CoverImage
+              src={film.coverUrl}
+              alt={film.title}
+              sizes="280px"
+              fallback={
+                <span style={{ position: 'absolute', bottom: '10px', left: '10px', fontFamily: "'DM Mono', monospace", fontSize: '9px', color: '#C8C2BA', lineHeight: 1.5 }}>
+                  {film.title}
+                </span>
+              }
+            />
           </div>
         </div>
 

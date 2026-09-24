@@ -17,6 +17,7 @@ interface CategoryGridItem {
   moods: string[]
   stayedWithMe?: boolean
   href: string
+  coverUrl?: string
 }
 
 interface CategoryGridProps {

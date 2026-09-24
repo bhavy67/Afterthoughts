@@ -7,9 +7,14 @@
   "rating": 5.0,
   "summary": "Two childhood sweethearts in Seoul lose touch, reconnect twice over twenty years. A film about the lives we didn't live.",
   "personalNote": "Song's debut and one of the best films about adult longing I've seen. Nobody is the villain. Nobody does anything wrong. It's about the roads not taken — and how they shadow the ones you did. The last ten minutes are devastating without a single dramatic thing happening.",
-  "moods": ["emotional", "nostalgic", "beautiful"],
+  "moods": [
+    "emotional",
+    "nostalgic",
+    "beautiful"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-04-22",
-  "wouldRewatch": true
+  "wouldRewatch": true,
+  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/7/71/Past_Lives_film_poster.jpg"
 }

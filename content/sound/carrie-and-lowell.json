@@ -7,11 +7,20 @@
   "rating": 5.0,
   "summary": "Stevens processing the death of his estranged mother through the quietest, most devastating folk you'll hear.",
   "personalNote": "I put this on during a long drive and had to pull over. Not because it's a sad album — though it is — but because it's so specific. The grief is particular and named and that makes it more universal somehow. Death With Dignity and Should Have Known Better are in my permanent memory. Return it to regularly, always unexpectedly.",
-  "moods": ["emotional", "beautiful", "quietly-brilliant"],
+  "moods": [
+    "emotional",
+    "beautiful",
+    "quietly-brilliant"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-01-28",
-  "favoriteTracks": ["Death With Dignity", "Should Have Known Better", "Fourth of July"],
+  "favoriteTracks": [
+    "Death With Dignity",
+    "Should Have Known Better",
+    "Fourth of July"
+  ],
   "whenDiscovered": "winter 2020",
-  "whyIReturn": "It's the most honest thing I've heard about grief."
+  "whyIReturn": "It's the most honest thing I've heard about grief.",
+  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/a/ae/Sufjan_Stevens_-_Carrie_%26_Lowell.jpg"
 }

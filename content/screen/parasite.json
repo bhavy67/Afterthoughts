@@ -7,9 +7,14 @@
   "rating": 5.0,
   "summary": "A poor Korean family insinuates itself into a wealthy household. Then the film changes completely.",
   "personalNote": "The most purely constructed film I've seen in years. Bong choreographs class anxiety like a thriller — every scene plants a seed that detonates later. The genre shift halfway through is genuinely shocking even when you're expecting it. I've seen it three times and I still notice new things.",
-  "moods": ["thought-provoking", "dark", "funny"],
+  "moods": [
+    "thought-provoking",
+    "dark",
+    "funny"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2023-12-05",
-  "wouldRewatch": true
+  "wouldRewatch": true,
+  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png"
 }

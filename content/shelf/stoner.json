@@ -1,0 +1,17 @@
+{
+  "slug": "stoner",
+  "title": "Stoner",
+  "creator": "John Williams",
+  "year": 1965,
+  "type": "novel",
+  "rating": 5.0,
+  "summary": "A literature professor at a Missouri university lives a quiet life of private defeats. One of the great novels about what it means to love one thing completely.",
+  "personalNote": "The saddest book I've read about a life that looks, from the outside, like a failure. Stoner becomes a professor, has a miserable marriage, one love affair, one friendship that matters. The world ignores him almost completely. And yet the prose won't let you ignore him. It insists his life mattered. It insists yours does too.",
+  "moods": ["quiet", "devastating", "timeless"],
+  "wouldRecommend": true,
+  "stayedWithMe": true,
+  "dateAdded": "2024-03-15",
+  "favoriteQuote": "In his forty-third year William Stoner learned what others, much younger, had learned before him: that the person one loves at first is not the person one loves at last, and that love is not an end but a process through which one person attempts to know another.",
+  "wouldReread": true,
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/0143105426-L.jpg"
+}

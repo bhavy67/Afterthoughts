@@ -47,7 +47,7 @@ export default function Nav() {
           </Link>
 
           {/* Desktop links */}
-          <nav aria-label="Main navigation" className="hidden md:flex" style={{ gap: '36px' }}>
+          <nav aria-label="Main navigation" className="hidden md:flex items-center" style={{ gap: '36px' }}>
             {links.map(({ href, label }) => {
               const active = pathname === href || pathname.startsWith(href + '/')
               return (
@@ -70,6 +70,21 @@ export default function Nav() {
                 </Link>
               )
             })}
+            <Link
+              href="/search"
+              aria-label="Search"
+              style={{
+                color: pathname === '/search' ? '#1A1A1A' : '#9E9990',
+                display: 'flex',
+                alignItems: 'center',
+                transition: 'color 0.15s',
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.25" />
+                <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+              </svg>
+            </Link>
           </nav>
 
           {/* Hamburger — mobile only */}
@@ -179,6 +194,24 @@ export default function Nav() {
               </Link>
             )
           })}
+          <Link
+            href="/search"
+            onClick={() => setOpen(false)}
+            style={{
+              display: 'block',
+              fontFamily: "'Fraunces Variable', 'Fraunces', serif",
+              fontWeight: 300,
+              fontSize: '28px',
+              letterSpacing: '-0.01em',
+              color: pathname === '/search' ? '#1A1A1A' : '#C8C2BA',
+              textDecoration: 'none',
+              padding: '16px 24px',
+              borderBottom: '1px solid rgba(26,26,26,0.05)',
+              transition: 'color 0.15s',
+            }}
+          >
+            search
+          </Link>
         </nav>
 
         {/* Panel footer */}

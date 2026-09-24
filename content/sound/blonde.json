@@ -7,11 +7,21 @@
   "rating": 5.0,
   "summary": "Frank Ocean's second album, four years in the making. It sounds like memory feels.",
   "personalNote": "There's no album that sounds more like the interior of someone's mind. Ocean builds moods rather than songs — Nikes, Self Control, Nights. The sequencing is part of the meaning. I've listened to it beginning to end more times than I can count and it still feels new in different moods.",
-  "moods": ["nostalgic", "beautiful", "emotional"],
+  "moods": [
+    "nostalgic",
+    "beautiful",
+    "emotional"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2023-10-12",
-  "favoriteTracks": ["Nikes", "Self Control", "Nights", "White Ferrari"],
+  "favoriteTracks": [
+    "Nikes",
+    "Self Control",
+    "Nights",
+    "White Ferrari"
+  ],
   "whenDiscovered": "autumn 2016",
-  "whyIReturn": "Sounds different every time. Always the right album for whatever I'm feeling."
+  "whyIReturn": "Sounds different every time. Always the right album for whatever I'm feeling.",
+  "coverUrl": "https://upload.wikimedia.org/wikipedia/en/a/a0/Frank_Ocean_-_Blonde.jpg"
 }

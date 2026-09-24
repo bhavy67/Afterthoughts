@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import StarRating from './StarRating'
 import MoodTag from './MoodTag'
+import CoverImage from './CoverImage'
 
 interface ItemCardProps {
   title: string
@@ -14,6 +15,7 @@ interface ItemCardProps {
   stayedWithMe?: boolean
   href?: string
   compact?: boolean
+  coverUrl?: string
 }
 
 export default function ItemCard({
@@ -28,6 +30,7 @@ export default function ItemCard({
   stayedWithMe,
   href,
   compact,
+  coverUrl,
 }: ItemCardProps) {
   const displayNote = personalNote ?? note ?? ''
   const isFilm = type === 'film' || type === 'documentary' || type === 'tv'
@@ -38,27 +41,38 @@ export default function ItemCard({
       className="hover:bg-[#F5F4F1] transition-colors duration-200 flex gap-6 md:gap-8 p-6 md:p-11"
       style={{ backgroundColor: '#FAFAF8', cursor: href ? 'pointer' : 'default' }}
     >
-      {/* Artwork placeholder */}
+      {/* Artwork */}
       <div
-        className="shrink-0 flex items-end"
+        className="shrink-0"
         style={{
           width: '80px',
           height: `${Math.round(artHeight * 0.8)}px`,
+          position: 'relative',
+          overflow: 'hidden',
           backgroundColor: '#EEECEA',
           border: '1px solid rgba(26,26,26,0.07)',
-          padding: '6px',
         }}
       >
-        <span
-          style={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: '9px',
-            color: '#C8C2BA',
-            lineHeight: 1.4,
-          }}
-        >
-          {title.split(' ').slice(0, 2).join('\n')}
-        </span>
+        <CoverImage
+          src={coverUrl}
+          alt={title}
+          sizes="80px"
+          fallback={
+            <span
+              style={{
+                position: 'absolute',
+                bottom: '6px',
+                left: '6px',
+                fontFamily: "'DM Mono', monospace",
+                fontSize: '9px',
+                color: '#C8C2BA',
+                lineHeight: 1.4,
+              }}
+            >
+              {title.split(' ').slice(0, 2).join('\n')}
+            </span>
+          }
+        />
       </div>
 
       {/* Content */}

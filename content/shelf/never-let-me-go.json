@@ -7,10 +7,15 @@
   "rating": 5.0,
   "summary": "A quietly devastating novel about memory, mortality, and the lives we accept.",
   "personalNote": "Read it in one sitting and spent a week quieter than usual. What it says about memory, complicity, and the smallness of our rebellions has no clean resolution — and that's the point. I kept waiting for them to fight back. They never do. Neither, the book implies, do most of us.",
-  "moods": ["emotional", "slow-burn", "quietly-brilliant"],
+  "moods": [
+    "emotional",
+    "slow-burn",
+    "quietly-brilliant"
+  ],
   "wouldRecommend": true,
   "stayedWithMe": true,
   "dateAdded": "2024-01-12",
   "favoriteQuote": "We all complete. Maybe none of us really understand what we've lived through, or feel we've had enough time.",
-  "wouldReread": true
+  "wouldReread": true,
+  "coverUrl": "https://covers.openlibrary.org/b/isbn/0307455823-L.jpg"
 }
