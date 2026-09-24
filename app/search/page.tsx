@@ -10,7 +10,7 @@ function entryHref(e: Entry): string {
 }
 
 export const metadata = {
-  title: 'Search — Afterthoughts',
+  title: 'Search · Afterthoughts',
   description: 'Search across books, films, and music.',
 }
 

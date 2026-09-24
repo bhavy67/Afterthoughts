@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const film = getFilm(slug)
   if (!film) return {}
-  return { title: `${film.title} — Afterthoughts`, description: film.summary }
+  return { title: `${film.title} · Afterthoughts`, description: film.summary }
 }
 
 export default async function FilmPage({ params }: Props) {

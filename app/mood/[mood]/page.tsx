@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { mood } = await params
   return {
-    title: `${mood} — Afterthoughts`,
+    title: `${mood} · Afterthoughts`,
     description: `Everything tagged "${mood}" across books, films, and music.`,
   }
 }

@@ -52,11 +52,11 @@ export default function HomePage() {
             fontWeight: 300,
             lineHeight: 1.95,
             color: 'var(--text-muted)',
-            maxWidth: '480px',
+            maxWidth: '420px',
           }}
         >
           Not a review platform. Not a catalogue.<br />
-          A personal archive of things that stayed —<br />
+          A personal archive of things that stayed,<br />
           and a few words about why.
         </p>
       </section>

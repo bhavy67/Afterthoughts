@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const album = getAlbum(slug)
   if (!album) return {}
-  return { title: `${album.title} — Afterthoughts`, description: album.summary }
+  return { title: `${album.title} · Afterthoughts`, description: album.summary }
 }
 
 export default async function AlbumPage({ params }: Props) {
